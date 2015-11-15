@@ -10,7 +10,7 @@ var sessionStore = new MongoStore({
     url:"mongodb://123.57.143.189/zfpxchat"
 })
 var PORT = process.env.PORT  | 3000;
-app.use(express.static(path.join(__dirname,'app')));
+app.use(express.static(path.join(__dirname,'build')));
 app.use(bodyParser.json());
 app.use(cookieParser());// req.cookies
 //  "_id" : "Q9TD4XauF_Q-AZQTy28NViunzjUy5KSL",

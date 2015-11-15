@@ -1,4 +1,4 @@
-angular.module('zfpxchat').controller('MessageSendCtrl',function($rootScope,$scope,socket){
+angular.module('zfpxchat').controller('MessageSendCtrl',['$rootScope','$scope','socket',function($rootScope,$scope,socket){
     $scope.newMessage = '';
     $scope.createMessage =  function(){
         if($scope.newMessage){
@@ -10,4 +10,4 @@ angular.module('zfpxchat').controller('MessageSendCtrl',function($rootScope,$sco
             $scope.newMessage = '';
         }
     }
-});
+}]);

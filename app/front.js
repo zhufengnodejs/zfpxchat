@@ -1,4 +1,4 @@
-angular.module('zfpxchat',['ngRoute']).config(function($locationProvider,$routeProvider){
+angular.module('zfpxchat',['ngRoute','angularMoment']).config(function($locationProvider,$routeProvider){
     $locationProvider.html5Mode(false);
     $routeProvider.when('/',{
         templateUrl:'pages/room.html',
@@ -11,5 +11,13 @@ angular.module('zfpxchat',['ngRoute']).config(function($locationProvider,$routeP
         controller:'RegCtrl'
     }).otherwise({
         redirectTo:'/'
+    });
+});
+
+angular.module('zfpxchat').run(function(validator,$location){
+    validator.then(function(){
+        $location.path('/');
+    },function(){
+        $location.path('/login');
     });
 });

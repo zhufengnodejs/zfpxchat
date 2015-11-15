@@ -1,11 +1,8 @@
-angular.module('zfpxchat').controller('RegCtrl',function($rootScope,$scope,$http,$location,socket){
+angular.module('zfpxchat').controller('RegCtrl',function($rootScope,$scope,$http,$location,socket,api){
     $scope.user = {};
     $scope.save = function(){
-        $http({
-            url:'/users/reg',
-            method:'POST',
-            data:$scope.user
-        }).success(function(user){
+        api.post('/users/reg',$scope.user)
+        .success(function(user){
             $rootScope.me = user;
             $location.path('/');
         }).error(function(){

@@ -3,6 +3,16 @@ var router = express.Router();
 var path = require('path');
 var crypto = require('crypto');
 var User = require('../controllers/user');
+router.get('/validate',function(req,res){
+  var user = req.session.user;
+  if(user){
+    res.json(user);
+  }else{
+      res.status(500).json({msg:"error"});
+  }
+});
+
+
 router.post('/reg', function (req, res) {
     var md5Email = md5(req.body.email);
     var avatar = "https://secure.gravatar.com/avatar/" + md5Email + "?s=48";
@@ -23,7 +33,6 @@ router.post('/reg', function (req, res) {
 
 router.post('/login', function (req, res) {
     req.body.password = md5(req.body.password);
-    console.log(req.body);
     User.login(req.body,function(err,user){
         if(err){
             res.json(500,{msg:err});
@@ -32,6 +41,12 @@ router.post('/login', function (req, res) {
             res.json(user);
         }
     });
+});
+
+
+router.get('/logout',function(req,res){
+    req.session.user = null;
+    res.json(200,{msg:'success'});
 });
 
 function md5(content) {

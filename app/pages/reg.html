@@ -9,7 +9,7 @@
                     </label>
                     <div class="input-group col-sm-4">
                         <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                        <input type="text" id="username" name="username" ng-model="user.username" class="form-control" placeholder="请输入中文用户名" ng-pattern="/[\4e00-\u9fa5]/" ng-required=""/>
+                        <input type="text" id="username" name="username" ng-model="user.username" class="form-control" placeholder="请输入中文用户名" ng-pattern="/[\u4e00-\u9fa5]/" ng-required=""/>
                     </div>
                     <div class="help-block col-sm-4" ng-show="userform.username.$dirty && userform.username.$invalid">
                         <span class="text-danger" ng-show="userform.username.$error.required">请填写用户名</span>

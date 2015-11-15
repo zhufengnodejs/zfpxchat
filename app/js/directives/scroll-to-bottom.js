@@ -4,6 +4,7 @@ angular.module('zfpxchat').directive('scrollToBottom',function(){
             scope.$watch(function(){
                 return element.children().length;
             },function(){
+                console.log(element.prop('scrollHeight'));
                 element.animate({
                     scrollTop:element.prop('scrollHeight')
                 },1000);

@@ -1,8 +1,14 @@
 angular.module('zfpxchat',['ngRoute']).config(function($locationProvider,$routeProvider){
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(false);
     $routeProvider.when('/',{
         templateUrl:'pages/room.html',
         controller:'RoomCtrl'
+    }).when('/login',{
+        templateUrl:'pages/login.html',
+        controller:'LoginCtrl'
+    }).when('/reg',{
+        templateUrl:'pages/reg.html',
+        controller:'RegCtrl'
     }).otherwise({
         redirectTo:'/'
     });

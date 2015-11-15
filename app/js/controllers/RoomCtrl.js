@@ -4,4 +4,7 @@ angular.module('zfpxchat').controller('RoomCtrl',function($scope,socket){
     socket.on('allMessages',function(messages){
         $scope.messages = messages;
     });
+    socket.on('message.add',function(message){
+        $scope.messages.push(message);
+    });
 });

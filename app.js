@@ -15,4 +15,8 @@ io.sockets.on('connection',function(socket){
     socket.on('getAllMessages',function(){
         socket.emit('allMessages',messages);
     });
+    socket.on('createMessage',function(message){
+        messages.push(message);
+        io.emit('message.add',message);
+    });
 });

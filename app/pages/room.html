@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">聊天室</div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="list-group-item" ng-repeat="message in messages track by $index">
+                    匿名: {{message}}
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="form">
+                <div class="form-group">
+                    <textarea name="" id="" style="width:100%" ></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
